@@ -1,0 +1,161 @@
+{
+  "name": "docflowai",
+  "displayName": "DocFlowAI",
+  "description": "AI-powered continuous documentation generator",
+  "version": "0.0.1",
+  "publisher": "harishraagavkj",
+  "icon": "icon.png",
+  "license": "MIT",
+  "pricing": "Free",
+  "keywords": [
+    "AI",
+    "documentation",
+    "code documentation",
+    "developer tools",
+    "architecture diagrams",
+    "code analysis",
+    "Ollama",
+    "software documentation"
+  ],
+  "engines": {
+    "vscode": "^1.145.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "docflowai.generateSystemArchitecture",
+        "title": "DocFlowAI: Generate Full System Architecture Map"
+      },
+      {
+        "command": "docflowai.generateComponentDiagram",
+        "title": "DocFlowAI: Generate Software Component Diagram"
+      },
+      {
+        "command": "docflowai.generateDataFlowDiagram",
+        "title": "DocFlowAI: Generate Data Flow Diagram"
+      },
+      {
+        "command": "docflowai.generateSequenceDiagram",
+        "title": "DocFlowAI: Generate Sequence Diagram"
+      },
+      {
+        "command": "docflowai.generateERDiagram",
+        "title": "DocFlowAI: Generate Database ER Diagram"
+      },
+      {
+        "command": "docflowai.generateProjectOverview",
+        "title": "DocFlowAI: Generate Project Overview"
+      },
+      {
+        "command": "docflowai.detectTechnologyStack",
+        "title": "DocFlowAI: Detect Technology Stack"
+      },
+      {
+        "command": "docflowai.discoverAPIs",
+        "title": "DocFlowAI: Discover APIs"
+      },
+      {
+        "command": "docflowai.analyzeDependencies",
+        "title": "DocFlowAI: Analyze Project Dependencies"
+      },
+      {
+        "command": "docflowai.analyzeCodeQuality",
+        "title": "DocFlowAI: Analyze Code Quality"
+      },
+      {
+        "command": "docflowai.analyzeChangeImpact",
+        "title": "DocFlowAI: Analyze Change Impact"
+      },
+      {
+        "command": "docflowai.generateReadme",
+        "title": "DocFlowAI: Generate README"
+      },
+      {
+        "command": "docflowai.generateApiDocumentation",
+        "title": "DocFlowAI: Generate API Documentation"
+      },
+      {
+        "command": "docflowai.generateTechnicalDocumentation",
+        "title": "DocFlowAI: Generate Technical Documentation"
+      },
+      {
+        "command": "docflowai.generateOnboardingGuide",
+        "title": "DocFlowAI: Generate Developer Onboarding Guide"
+      },
+      {
+        "command": "docflowai.documentCurrentFile",
+        "title": "DocFlowAI: Document Current File"
+      },
+      {
+        "command": "docflowai.explainCode",
+        "title": "DocFlowAI: Explain Selected Code"
+      },
+      {
+        "command": "docflowai.findDependencies",
+        "title": "DocFlowAI: Find Code Dependencies"
+      },
+      {
+        "command": "docflowai.documentFunctions",
+        "title": "DocFlowAI: Document Functions"
+      },
+      {
+        "command": "docflowai.suggestCodeImprovements",
+        "title": "DocFlowAI: Suggest Code Improvements"
+      },
+      {
+        "command": "docflowai.generateDocumentationBundle",
+        "title": "DocFlowAI: Generate Complete Documentation Bundle"
+      },
+      {
+        "command": "docflowai.refreshArchitecture",
+        "title": "DocFlowAI: Refresh System Architecture"
+      },
+      {
+        "command": "docflowai.viewActivityLog",
+        "title": "DocFlowAI: View Activity Log"
+      },
+      {
+        "command": "docflowai.clearActivityLog",
+        "title": "DocFlowAI: Clear Activity Log"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.145.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0",
+    "eslint": "^10.5.0",
+    "ts-loader": "^9.6.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  },
+  "dependencies": {
+    "@eraserlabs/diagrams": "^0.2.0"
+  }
+}

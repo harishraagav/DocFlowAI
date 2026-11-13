@@ -1,0 +1,21 @@
+# Development and repository files
+.vscode/**
+.vscode-test/**
+.git/**
+.github/**
+.gitignore
+.eslint*
+.prettier*
+tsconfig*.json
+webpack.config.js
+src/**
+test/**
+tests/**
+out/**
+coverage/**
+*.log
+.DS_Store
+Thumbs.db
+
+# Keep runtime dependencies required by the extension.
+# Do not add node_modules/** here unless all runtime dependencies are bundled.
