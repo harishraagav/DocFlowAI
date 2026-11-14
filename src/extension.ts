@@ -19,7 +19,6 @@ import { registerApiDocumentationCommands } from './commands/apiDocumentationCom
 import { registerTechnicalDocumentationCommands } from './commands/technicalDocumentationCommands';
 import { registerOnboardingGuideCommands } from './commands/onboardingGuideCommands';
 import { registerFileDocumentationCommands } from './commands/fileDocumentationCommands';
-
 import { registerCodeExplanationCommands } from './commands/codeExplanationCommands';
 import { registerCodeDependencyCommands } from './commands/codeDependencyCommands';
 import { registerFunctionDocumentationCommands } from './commands/functionDocumentationCommands';
@@ -27,25 +26,42 @@ import { registerCodeImprovementCommands } from './commands/codeImprovementComma
 import { registerDocumentationBundleCommands } from './commands/documentationBundleCommands';
 import { registerArchitectureRefreshCommands } from './commands/architectureRefreshCommands';
 import { registerActivityLogCommands } from './commands/activityLogCommands';
+import { registerAIProviderCommands } from './commands/aiProviderCommands';
+import {
+    DocFlowAIDashboardProvider
+} from './providers/docflowaiDashboardProvider';
 
+import { initializeAIProvider } from './services/aiProvider';
 
 export function activate(context: vscode.ExtensionContext): void {
+    initializeAIProvider(context);
+        const dashboardProvider = new DocFlowAIDashboardProvider(
+        context.extensionUri
+    );
+
+    context.subscriptions.push(
+        vscode.window.registerWebviewViewProvider(
+            DocFlowAIDashboardProvider.viewType,
+            dashboardProvider
+        )
+    );
 
     console.log('DocFlowAI is active!');
 
     registerArchitectureCommands(context);
+
     registerComponentCommands(context);
     registerApiDocumentationCommands(context);
     registerTechnicalDocumentationCommands(context);
     registerDataFlowCommands(context);
-	registerSequenceCommands(context);
+    registerSequenceCommands(context);
     registerChangeImpactCommands(context);
     registerOnboardingGuideCommands(context);
     registerFileDocumentationCommands(context);
     registerReadmeCommands(context);
     registerDependencyCommands(context);
     registerCodeQualityCommands(context);
-	registerERCommands(context);
+    registerERCommands(context);
     registerApiDiscoveryCommands(context);
     registerProjectOverviewCommands(context);
     registerTechnologyStackCommands(context);
@@ -59,13 +75,14 @@ export function activate(context: vscode.ExtensionContext): void {
     registerArchitectureRefreshCommands(context);
     registerActivityLogCommands(context);
 
+    registerAIProviderCommands(context);
+
     vscode.window.showInformationMessage(
         'DocFlowAI is ready. Your project documentation assistant is active.'
     );
 }
 
 export async function deactivate(): Promise<void> {
-
     await closeEraserRenderer();
 
     console.log('DocFlowAI deactivated.');

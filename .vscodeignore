@@ -1,6 +1,7 @@
-# Development and repository files
+﻿# Development and repository files
 .vscode/**
 .vscode-test/**
+.vscode-test.mjs
 .git/**
 .github/**
 .gitignore
@@ -8,14 +9,57 @@
 .prettier*
 tsconfig*.json
 webpack.config.js
+
+# Source and test files
 src/**
 test/**
 tests/**
 out/**
 coverage/**
+
+# Generated activity data and logs
+DocFlowAI_Activity_Log.md
 *.log
+
+# Operating system files
 .DS_Store
 Thumbs.db
 
-# Keep runtime dependencies required by the extension.
-# Do not add node_modules/** here unless all runtime dependencies are bundled.
+# Playwright: exclude TypeScript declarations and unused CLI entry points
+node_modules/playwright-core/types/**
+node_modules/playwright-core/index.d.ts
+node_modules/playwright-core/cli.js
+node_modules/playwright-core/README.md
+
+# Keep dist/, resources/, README.md, CHANGELOG.md, LICENSE,
+# icon.png, package.json and all required runtime dependencies.
+
+# Dependency development files (retain runtime JavaScript and assets)
+**/test/**
+**/tests/**
+**/spec/**
+**/benchmark/**
+**/benchmarks/**
+**/.github/**
+**/.vscode/**
+**/*.test.js
+**/*.spec.js
+**/*.test-d.ts
+**/*.d.ts
+**/*.d.ts.map
+**/*.js.map
+**/*.ts
+**/*.tsx
+**/tsconfig*.json
+**/eslint.config.*
+**/.eslintrc*
+**/.editorconfig
+**/.npmignore
+**/.gitattributes
+**/.travis.yml
+**/CHANGELOG.md
+**/changelog.md
+**/README.md
+**/readme.md
+**/logo*.png
+!CHANGELOG.md
